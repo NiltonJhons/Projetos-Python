@@ -2,7 +2,6 @@
 
 from time import sleep # Função que executa determinado comando depois de determina tempo.
 from os import system, name # Funções para limpar o terminal.
-from sys import exit # Função para finalizar código.
 from random import choice # Função para escolher um número aleatório (usamos para converte-lo em uma condição).
 
 # Função do jogo
@@ -59,8 +58,9 @@ def jogo_jokenpo():
 while True:
     jogo_jokenpo() # Inicia o jogo
     resposta = input('Deseja jogar novamente? (S/N):  ').upper().replace(' ', '')
-    print('\033[35m\n----- Recomeçando -----\033[m')
     if resposta != 'S': # Se a variável "resposta" for diferente de "S" ou "SIM", finaliza o programa
-        exit()
+        print('--- Até mais! ---')
+        break
+    print('\033[35m\n----- Recomeçando -----\033[m')
     sleep(2.3)
     system('cls' if name == 'nt' else 'clear')
