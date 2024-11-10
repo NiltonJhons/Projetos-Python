@@ -57,10 +57,11 @@ def jogo_jokenpo():
 # Estrutura de decisão para o jogo recomeçar (dependendo da decisão do usuário)
 while True:
     jogo_jokenpo() # Inicia o jogo
-    resposta = input('Deseja jogar novamente? (S/N):  ').upper().replace(' ', '')
-    if resposta != 'S': # Se a variável "resposta" for diferente de "S" ou "SIM", finaliza o programa
-        print('--- Até mais! ---')
+    resposta = input('\033[33mDeseja jogar novamente? \033[m(\033[32mS\033[m\033[m/\033[31mN\033[m):  ').upper().replace(' ', '')
+    if resposta == 'S' or resposta == 'SIM': # Se a variável "resposta" for diferente de "S" ou "SIM", finaliza o programa
+        print('\033[35m\n----- Recomeçando -----\033[m')
+        sleep(2.3)
+        system('cls' if name == 'nt' else 'clear')
+    else:
+        print('\n\033[36m--- Até mais! ---\033[m\n')
         break
-    print('\033[35m\n----- Recomeçando -----\033[m')
-    sleep(2.3)
-    system('cls' if name == 'nt' else 'clear')
