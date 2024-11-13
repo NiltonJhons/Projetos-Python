@@ -1,0 +1,55 @@
+from time import sleep
+from os import system, name
+
+i = True
+
+def pa():
+    print('''
+-----------------------------------------
+    \033[36mGerador de Progressão Aritmética\033[m
+-----------------------------------------
+    ''')
+    try:
+        p_termo = int(input('Primeiro termo:  \033[35m'))
+        razao = int(input('\033[mRazão do PA:  \033[35m'))
+        qtd = int(input('\033[mDigite quantos termos deseja ver:  \033[35m'))
+        if 0 in [p_termo, razao, qtd]:
+            print('''\033[31m
+-------------------------------------------------------
+   O valor de 0 é inválido em Progressão Aritmétrica
+-------------------------------------------------------\n\033[m''')
+            return
+        cont = 1
+
+        print('\n\033[mOs {} primeiros termos:\n'.format(qtd))
+
+        while cont <= qtd:
+            print('{}'.format(p_termo), end=' \033[35m➝\033[m  ')
+            p_termo += razao
+            cont += 1
+        print(' \033[4;31mFIM\033[m\n')
+    except ValueError:
+        print('''\033[31m
+---------------------------
+   Digite apenas números!
+---------------------------\n\033[m''')
+        return
+    sleep(6)
+
+while i:
+    pa()
+    escolha = int(input('''      \033[36mOpções\033[m
+-------------------
+[ \033[1;33m1\033[m ] - Recomeçar
+[ \033[1;33m0\033[m ] - Encerrar
+-------------------
+Eu escolho \033[1;35m'''))
+    match escolha:
+        case 1:
+            sleep(2)
+            print('\n\033[35m--- Recomeçando ---\033[m')
+            sleep(2)
+            system('cls' if name == 'nt' else 'clear')
+        case _:
+            print('\n\033[31m--- Até Mais ---\033[m\n')
+            break
