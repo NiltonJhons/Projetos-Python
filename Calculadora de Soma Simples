@@ -1,0 +1,52 @@
+# Variáveis
+soma = cont_media = contador = 0
+lista = []
+i = True
+
+# Título
+print('''
+-----------------------------------
+   \033[35mCalculadora de Soma - Simples\033[m
+-----------------------------------
+     \033[31mDigite "0" para encerrar\033[m
+-----------------------------------
+''')
+
+# Programa
+while i:
+    num = str(input(f'Digite o {contador + 1}º valor: ')).replace(' ', '')
+
+    if num.isdigit() and num != '': # Se o num é um número (ou composto apenas por números) e é difirente de vazio (ou seja, com caracteres)...
+        num = int(num) # Ele é convertido para o tipo primitivo inteiro
+    else: # Se não...
+        num = 0  # Ele recebe o valor de 0 (O que é gatilho para o programa verificar se o usuário quer continuar)
+    
+    soma += num # Soma recebe os valores de num
+    if num != 0: # Se num for diferente de 0...
+        contador += 1 # o contador recebe mais 1, desse modo, garatindo contabilizarmos apenas números "válidos"
+        cont_media += 1 # Se num for diferente de 0, o cont_media recebe mais 1, desse modo, podemos dividir apenas pela quantidade de valores "válidos"
+        lista.append(num) # E por fim, adiciona esse número (num) na lista
+
+    match num: # Se num for um valor inválido (letras, números, simbolos, etc...), o comando abaixo é executado:
+        case 0:
+            escolha = str(input('''
+   Você inseriu um valor de parada!
+-------------------------------------
+        \033[35mDeseja continuar?\033[m
+-------------------------------------
+        [ \033[32m1\033[m ] - Continuar
+        [ \033[31m2\033[m ] - Encerrar
+-------------------------------------
+Sua opção:  \033[35m''')).strip() # Mensagem de escolha
+            if escolha != '1': # Se escolha for diferente de '1', encerra a estrutura de repetição
+                break
+
+if soma == 0: # Se a soma for igual a 0, ou seja, apenas valores inválidos foram digitados:
+    print('\n\033[mNão foi digitado nenhum valor válido! (\033[31mvalores númericos diferentes de 0\033[m...).')
+
+elif contador == 1: # Se apenas um valor tiver sido digitado:
+    print('\n\033[mFoi digitado apenas um único valor, equivalente a \033[4;34m{}\033[m.'.format(soma))
+
+else: # Se não (mais de um valor válido foi digitado):
+    print('\n\033[mFoi digitado \033[4;34m{}\033[m valores válidos.\nA soma entre todos eles é igual a \033[4;34m{}\033[m.\nA média entre eles é \033[4;34m{:.2f}\033[m.\nO maior valor digitado foi \033[4;34m{}\033[m.\nO menor valor digitado foi \033[4;34m{}\033[m.'.format(contador, soma, soma / cont_media, max(lista), min(lista)))
+print('\n\033[31m--- Até Mais ---\033[m\n')
