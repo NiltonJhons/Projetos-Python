@@ -1,7 +1,6 @@
 # Variáveis
 soma = contador = 0
 lista = []
-i = True
 
 # Título
 print('''
@@ -13,7 +12,7 @@ print('''
 ''')
 
 # Programa
-while i:
+while True:
     num = str(input(f'Digite o {contador + 1}º valor: ')).replace(' ', '')
 
     if num.isdigit() and num != '': # Se o num é um número (ou composto apenas por números) e é difirente de vazio (ou seja, com caracteres)...
