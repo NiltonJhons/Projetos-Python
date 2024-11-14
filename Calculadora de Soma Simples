@@ -1,5 +1,5 @@
 # Variáveis
-soma = cont_media = contador = 0
+soma = contador = 0
 lista = []
 i = True
 
@@ -24,7 +24,6 @@ while i:
     soma += num # Soma recebe os valores de num
     if num != 0: # Se num for diferente de 0...
         contador += 1 # o contador recebe mais 1, desse modo, garatindo contabilizarmos apenas números "válidos"
-        cont_media += 1 # Se num for diferente de 0, o cont_media recebe mais 1, desse modo, podemos dividir apenas pela quantidade de valores "válidos"
         lista.append(num) # E por fim, adiciona esse número (num) na lista
 
     match num: # Se num for um valor inválido (letras, números, simbolos, etc...), o comando abaixo é executado:
@@ -48,5 +47,5 @@ elif contador == 1: # Se apenas um valor tiver sido digitado:
     print('\n\033[mFoi digitado apenas um único valor, equivalente a \033[4;34m{}\033[m.'.format(soma))
 
 else: # Se não (mais de um valor válido foi digitado):
-    print('\n\033[mFoi digitado \033[4;34m{}\033[m valores válidos.\nA soma entre todos eles é igual a \033[4;34m{}\033[m.\nA média entre eles é \033[4;34m{:.2f}\033[m.\nO maior valor digitado foi \033[4;34m{}\033[m.\nO menor valor digitado foi \033[4;34m{}\033[m.'.format(contador, soma, soma / cont_media, max(lista), min(lista)))
+    print('\n\033[mFoi digitado \033[4;34m{}\033[m valores válidos.\nA soma entre todos eles é igual a \033[4;34m{}\033[m.\nA média entre eles é \033[4;34m{:.2f}\033[m.\nO maior valor digitado foi \033[4;34m{}\033[m.\nO menor valor digitado foi \033[4;34m{}\033[m.'.format(contador, soma, soma / contador, max(lista), min(lista)))
 print('\n\033[31m--- Até Mais ---\033[m\n')
