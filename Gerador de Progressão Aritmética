@@ -1,8 +1,6 @@
 from time import sleep
 from os import system, name
 
-i = True
-
 def pa():
     print('''
 -----------------------------------------
@@ -36,7 +34,7 @@ def pa():
         return
     sleep(6)
 
-while i:
+while True:
     pa()
     escolha = int(input('''      \033[36mOpções\033[m
 -------------------
