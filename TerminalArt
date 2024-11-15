@@ -124,6 +124,16 @@ def programa():
             case 1:
                 print('\n\033[m---- \033[4;36mEsqueleto\033[m ----')
                 print(f'{'\n\033[1;35m'}\\033[{'\033[0;34m'}estilo{'\033[1;35m'};{'\033[0;34m'}cor{'\033[1;35m'};{'\033[0;34m'}fundo{'\033[1;35m'}m\033[m')
+                print('''
+Para limpar, use:
+\033[35m\\033[m\033[m
+
+\033[32mExemplo prático:\033[m
+
+\\033[1m - \033[1m Python é divertido!\033[m
+\\033[34m - \033[34m A linda flor.\033[m
+\\033[3;36m - \033[3;36m O lobo ama bolo.\033[m
+''')
                 estilos()
             case 2:
                 print('\n\033[1;31mO "\033[mVALOR\033[1;31m" deve ser substituído por um número de acordo com a necessidade!')
@@ -133,16 +143,33 @@ def programa():
             case 3:
                 print('\n\033[m---- \033[4;36mComo utilizar?\033[m ----')
                 print('''
-    \033[0;35mVá até o site:\033[1;32m  https://emojiguide.org/smiling-face-with-heart-eyes \n\033[35m
-    Escolha o emoji e copie o seu "Codepoint", que é uma sequência de caracteres.
-    Coloque esse código na função print:
-    \033[34m\nprint('\\U\033[m+\033[34m1f60d')\n\033[35m
-    Por fim, substitua o "+" por três zeros:
-    \033[34m\nprint('\\U0001f60d')\n\033[m''')
-                print('''
-    \033[1;36mResultado:\033[m
+\033[0;35mVá até o site:\033[1;32m  https://emojiguide.org/smiling-face-with-heart-eyes \n\033[35m
+Escolha o emoji e copie o seu "Codepoint", que é uma sequência de caracteres (\033[33mExemplo:\033[35m U+1f60d).
+Coloque esse código na função print:
+\033[34m\nprint('\\U\033[m+\033[34m1f60d')\n\033[35m
+Por fim, substitua o "+" por três zeros:
+\033[34m\nprint('\\U0001f60d')\n\033
 
-    \U0001f60d''')
+\033[1;36mResultado:\033[m
+
+\U0001f60d
+
+-----------------------------------------------------
+
+\033[35mObs: Em caso de emojis que tenham dois Codepoint...
+\033[33mExemplo:\033[35m U+26a0 U+fe0f
+
+Se utiliza da seguinte forma:
+
+\033[34mprint('\\U000026a0\\U0000fe0f')
+
+\033[1;36mResultado:\033[m
+
+\U000026a0\U0000fe0f
+
+\033[31mAdemais, alguns Codepoint necessitarão de mais ou menos que três zeros, então os digite até mudar a cor padrão da string
+Quando criamos uma mensagem entre aspas, ela fica de dterminada cor, e quando definimos um emoji, a cor mudará! (O mesmo que ocorre com \\n).\033[m
+''')
             case _:
                 print('\n\033[1;31m    Escolha [ \033[34m1\033[1;31m ] ou [ \033[34m2\033[1;31m ]!')
     except ValueError:
