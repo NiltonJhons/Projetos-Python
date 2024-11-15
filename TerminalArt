@@ -1,0 +1,148 @@
+from time import sleep
+
+print('''
+-------------------------------------------
+               \033[34mTerminalArt\033[m
+-------------------------------------------''')
+
+# Função - Formatações
+def formatacoes():
+    texto = "Python"
+    numero_decimal = 12345.6789
+    numero_inteiro = 255
+
+# Alinhamento de Strings
+    print("\n---- \033[4;36mAlinhamento de Strings\033[m ----\n")
+    print(f"{'VAR\033[1;35m'}:<{'\033[m'}VALOR - {'\033[31m'}Alinhado à esquerda:\033[m |{texto:<20}|")
+    print(f"{'VAR\033[1;35m'}:>{'\033[m'}VALOR - {'\033[31m'}Alinhado à direita:\033[m |{texto:>20}|")
+    print(f"{'VAR\033[1;35m'}:^{'\033[m'}VALOR - {'\033[31m'}Centralizado:\033[m |{texto:^20}|")
+    print(f"{'VAR\033[1;35m'}-^{'\033[m'}VALOR - {'\033[31m'}Preenchido com '-':\033[m |{texto:-^20}|")
+
+# Formatação de Números Decimais
+    print("\n---- \033[4;36mFormatação de Números Decimais\033[m ----\n")
+    print(f"{'VAR\033[1;35m'}:.\033[mVALOR\033[35mf{'\033[m'}       - {'\033[31m'}Decimal com 2 casas:\033[m {numero_decimal:.2f}")
+    print(f"{'VAR\033[1;35m'}:,.\033[mVALOR\033[35mf{'\033[m'}      - {'\033[31m'}Separador de milhar:\033[m {numero_decimal:,.2f}")
+    print(f"{'VAR\033[1;35m'}:>\033[mVALOR\033[35m.\033[mVALOR\033[35mf{'\033[m'} - {'\033[31m'}Alinhado à direita, 20 caracteres:\033[m {numero_decimal:>20.2f}")
+    print(f"{'VAR\033[1;35m'}-<\033[mVALOR\033[35m.\033[mVALOR\033[35mf{'\033[m'} - {'\033[31m'}Alinhado à esquerda com '-':\033[m {numero_decimal:-<20.2f}")
+    print(f"{'VAR\033[1;35m'}:.\033[mVALOR\033[35me{'\033[m'}       - {'\033[31m'}Formato exponencial:\033[m {numero_decimal:.2e}")
+
+# Formatação de Inteiros
+    print("\n---- \033[4;36mFormatação de Inteiros\033[m ----\n")
+    print(f"{'VAR\033[1;35m'}:d{'\033[m'} - {'\033[31m'}Decimal:\033[m {numero_inteiro:d}")
+    print(f"{'VAR\033[1;35m'}:b{'\033[m'} - {'\033[31m'}Binário:\033[m {numero_inteiro:b}")
+    print(f"{'VAR\033[1;35m'}:o{'\033[m'} - {'\033[31m'}Octal:\033[m {numero_inteiro:o}")
+    print(f"{'VAR\033[1;35m'}:x{'\033[m'} - {'\033[31m'}Hexadecimal (minúsculo):\033[m {numero_inteiro:x}")
+    print(f"{'VAR\033[1;35m'}:X{'\033[m'} - {'\033[31m'}Hexadecimal (maiúsculo):\033[m {numero_inteiro:X}")
+
+# Sinalização
+    print("\n---- \033[4;36mSinalização de Números\033[m ----\n")
+    print(f"{'VAR\033[1;35m'}:+{'\033[m'} - {'\033[31m'}Sinal explícito para positivo:\033[m {numero_inteiro:+}")
+    print(f"{'\033[1;35m'}-{'\033[m'}VAR  - {'\033[31m'}Sinal negativo apenas (padrão):\033[m {-numero_inteiro}")
+    print(f"{'VAR\033[1;35m'}: {'\033[m'} - {'\033[31m'}Espaço para números positivos:\033[m {numero_inteiro: }")
+
+# Formatação de Porcentagem
+    print("\n---- \033[4;36mFormatação de Porcentagem\033[m ----\n")
+    print(f"{'\033[1;35m'}:.2%{'\033[m'} - {'\033[31m'}Porcentagem (0.8523 = 85.23%):\033[m {0.8523:.2%}")
+
+
+# Função - Estilos e cores
+def estilos():
+    frase = "Python é divertido"
+    
+    # Estilos de texto
+    estilos = {
+        '0 - Normal': '0',
+        '1 - Negrito': '1',
+        '2 - Desbotado': '2',
+        '3 - Itálico': '3',
+        '4 - Sublinhado': '4',
+        '5 - Invertido': '7',
+        '6 - Riscado': '9',
+    }
+    
+    # Cores de texto (foreground)
+    cores_texto = {
+        '30 - Preto': '30',
+        '31 - Vermelho': '31',
+        '32 - Verde': '32',
+        '33 - Amarelo': '33',
+        '34 - Azul': '34',
+        '35 - Laranja': '35',
+        '36 - Roxo': '36',
+        '37 - Branco': '37',
+    }
+    
+    # Cores de fundo (background)
+    cores_background = {
+        '40 - Preto': '40',
+        '41 - Vermelho': '41',
+        '42 - Verde': '42',
+        '43 - Amarelo': '43',
+        '44 - Azul': '44',
+        '45 - Laranja': '45',
+        '46 - Roxo': '46',
+        '47 - Branco': '47',
+    }
+
+    print("\n---- \033[4;36mEstilos\033[m ----\n")
+    for nome_estilo, estilo in estilos.items():
+        # Aplica o estilo na frase
+        codigo_ansi = f"\033[{estilo}m"
+        reset = "\033[0m"
+        print(f"{codigo_ansi}{nome_estilo}: {frase}{reset}")
+
+    print("\n---- \033[4;36mCores de Texto\033[m ----\n")
+    for nome_cor_texto, cor_texto in cores_texto.items():
+        # Aplica a cor de texto na frase
+        codigo_ansi = f"\033[{cor_texto}m"
+        reset = "\033[0m"
+        print(f"{codigo_ansi}{nome_cor_texto}: {frase}{reset}")
+
+    print("\n---- \033[4;36mCores de Background\033[m ----\n")
+    for nome_cor_background, cor_background in cores_background.items():
+        # Aplica o background na frase
+        codigo_ansi = f"\033[{cor_background}m"
+        reset = "\033[0m"
+        print(f"{codigo_ansi}{nome_cor_background}: {frase}{reset}")
+
+# Escolha de qual função executar
+try:
+    escolha = int(input('''
+        --------------------------
+               \033[36mEu escolho...\033[m
+        --------------------------
+           [\033[1;34m 1 \033[m] - Estilos e Cores
+           [\033[1;34m 2 \033[m] - Formatações
+           [\033[1;34m 3 \033[m] - Emojis e Simbolos
+        --------------------------
+           Sua opção:  \033[35m'''))
+
+# Opções
+    match escolha:
+        case 1:
+            print('\n\033[m---- \033[4;36mEsqueleto\033[m ----')
+            print(f'{'\n\033[1;35m'}\\033[{'\033[0;34m'}estilo{'\033[1;35m'};{'\033[0;34m'}cor{'\033[1;35m'};{'\033[0;34m'}fundo{'\033[1;35m'}m\033[m')
+            estilos()
+        case 2:
+            print('\n\033[1;31mO "\033[mVALOR\033[1;31m" deve ser substituído por um número de acordo com a necessidade!')
+            print('A "\033[mVAR\033[1;31m" (váriavel) deve ser substituído pela variável de acordo com a necessidade!\033[m\n')
+            sleep(3)
+            formatacoes()
+        case 3:
+            print('\n\033[m---- \033[4;36mComo utilizar?\033[m ----')
+            print('''
+\033[0;35mVá até o site:\033[1;32m  https://emojiguide.org/smiling-face-with-heart-eyes \n\033[35m
+Escolha o emoji e copie o seu "Codepoint", que é uma sequência de caracteres.
+Coloque esse código na função print:
+\033[34m\nprint('\\U\033[m+\033[34m1f60d')\n\033[35m
+Por fim, substitua o "+" por três zeros:
+\033[34m\nprint('\\U0001f60d')\n\033[m''')
+            print('''
+\033[1;36mResultado:\033[m
+
+\U0001f60d''')
+        case _:
+            print('\n\033[1;31m    Escolha [ \033[34m1\033[1;31m ] ou [ \033[34m2\033[1;31m ]!')
+except ValueError:
+    print('\n\033[1;31m    Digite apenas números!')
+print('\n\033[1m---------------- FIM ----------------\033[m\n')
