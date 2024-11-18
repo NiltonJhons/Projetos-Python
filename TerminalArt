@@ -141,8 +141,27 @@ Para limpar, use:
                 sleep(3)
                 formatacoes()
             case 3:
-                print('\n\033[m---- \033[4;36mComo utilizar?\033[m ----')
+                print('\n\n\033[m---- \033[4;36mComo utilizar?\033[m ----')
                 print('''
+    \033[31mHá duas maneiras!\033[m
+------------------------
+  \033[1;36m Maneira 1 - Simples\033[m
+------------------------
+
+\033[0;35mVá até o site:\033[1;32m  https://emojiguide.org/smiling-face-with-heart-eyes \n\033[35m
+Escolha o emoji e o copie na parte "Symbol"
+Por fim, basta o colar na sua função.
+\033[33mExemplo: \033[35mprint('Olá mundo! 🌎')
+
+\033[1;36mResultado:\033[m
+
+Olá mundo! 🌎
+
+
+------------------------------
+    \033[1;36mManeira 2 - Com códigos\033[m
+------------------------------
+
 \033[0;35mVá até o site:\033[1;32m  https://emojiguide.org/smiling-face-with-heart-eyes \n\033[35m
 Escolha o emoji e copie o seu "Codepoint", que é uma sequência de caracteres (\033[33mExemplo:\033[35m U+1f60d).
 Coloque esse código na função print:
