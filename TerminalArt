@@ -58,8 +58,8 @@ def programa():
             '2 - Desbotado': '2',
             '3 - Itálico': '3',
             '4 - Sublinhado': '4',
-            '5 - Invertido': '7',
-            '6 - Riscado': '9',
+            '7 - Negativo': '7',
+            '9 - Riscado': '9',
         }
 
         # Cores de texto (foreground)
