@@ -25,10 +25,11 @@ def jogo_jokenpo():
 
 ----------------------''')
 # Opção de escolha do usuário
-    escolha = str(input('\033[34mEu escolho:\n')).lower().replace(' ', '')
-    if escolha not in ['pedra', 'papel', 'tesoura']:
-        print('\n\033[31mDigite um valor válido!\033[m\n')
-        return
+    while True:
+        escolha = str(input('\033[34mEu escolho:\n')).lower().replace(' ', '')
+        if escolha in ['pedra', 'papel', 'tesoura']:
+            break
+        print('\033[1;31mNão há essa opção.\033[m\n')
     print('\n\033[35mO computador escolhe... ')
     sleep(2)
     print('{}\n'.format(escolha_computador.capitalize()))
@@ -55,12 +56,11 @@ def jogo_jokenpo():
 # Estrutura de decisão para o jogo recomeçar (dependendo da decisão do usuário)
 while True:
     jogo_jokenpo() # Inicia o jogo
-    resposta = input('\033[33mDeseja jogar novamente? \033[m(\033[32mS\033[m\033[m/\033[31mN\033[m):  ').upper().replace(' ', '')
-    match resposta:
-        case 'S' | 'SIM': # Caso resposta for "S" ou "SIM" recomeça o programa.
-            print('\033[35m\n----- Recomeçando -----\033[m')
-            sleep(1.7)
-            system('cls' if name == 'nt' else 'clear')
-        case _: # Caso não, finaliza a repetição.
-            print('\n\033[36m--- Até mais! ---\033[m\n')
-            break
+    resposta = input('\033[33mDeseja jogar novamente? \033[m(\033[32mS\033[m\033[m/\033[31mN\033[m):  ').upper().replace(' ', '')[0]
+    if resposta == 'S':
+        print('\033[35m\n----- Recomeçando -----\033[m')
+        sleep(1.7)
+        system('cls' if name == 'nt' else 'clear')
+    else: # Caso não, finaliza a repetição.
+        print('\n\033[36m--- Até mais! ---\033[m\n')
+        break
